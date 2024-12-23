@@ -4,11 +4,10 @@ package com.contactmanager.demo.controller;
 import com.contactmanager.demo.model.Contacts;
 import com.contactmanager.demo.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 public class ContactsController {
