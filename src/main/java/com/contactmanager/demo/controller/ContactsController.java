@@ -4,12 +4,11 @@ package com.contactmanager.demo.controller;
 import com.contactmanager.demo.model.Contacts;
 import com.contactmanager.demo.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ContactsController {
@@ -20,6 +19,17 @@ public class ContactsController {
     public List<Contacts> getContacts(){
         return contactService.getContacts();
     }
+    @GetMapping("contacts/{id}")
+    public Contacts getcontactById(@PathVariable int id){
+        return contactService.getContactById(id);
+    }
+
+    @GetMapping("/users/{name}")
+    public List<Contacts> getUserByName(@PathVariable String name) {
+        return contactService.getUserByName(name);
+
+    }
+
     @PostMapping("/add-contact")
     public void addContact(@RequestBody Contacts contact){
         contactService.addContact(contact);
