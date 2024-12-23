@@ -36,4 +36,8 @@ public class ContactService {
     public void deleteByName(String name) {
         repo.deleteByContactName(name);
     }
+
+    public void updateContact(Contacts contact) {
+        repo.save(contact);
+    }
 }

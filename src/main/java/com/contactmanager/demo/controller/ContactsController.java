@@ -29,6 +29,11 @@ public class ContactsController {
 
     }
 
+    @PostMapping("update")
+    public void updateContact(@RequestBody Contacts contact){
+        contactService.updateContact(contact);
+    }
+
     @PostMapping("/add-contact")
     public void addContact(@RequestBody Contacts contact){
         contactService.addContact(contact);
