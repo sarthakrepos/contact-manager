@@ -33,4 +33,10 @@ public class ContactsController {
     public void addContact(@RequestBody Contacts contact){
         contactService.addContact(contact);
     }
+
+    @DeleteMapping("user/{name}")
+    public void deleteByName(@PathVariable String name){
+        System.out.println(name);
+        contactService.deleteByName(name);
+    }
 }

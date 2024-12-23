@@ -4,6 +4,7 @@ import com.contactmanager.demo.model.Contacts;
 import com.contactmanager.demo.repository.ContactRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,5 +30,10 @@ public class ContactService {
 
     public List<Contacts> getUserByName(String name) {
         return repo.findByContactNameStartingWithIgnoreCase(name);
+    }
+
+    @Transactional
+    public void deleteByName(String name) {
+        repo.deleteByContactName(name);
     }
 }
